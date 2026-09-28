@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Městské lázně Nové Město na Moravě",
+        "description": "Přidá aktuální návštěvnost a provozní dobu z lazne.nmnm.cz."
+      }
+    },
+    "abort": {
+      "already_configured": "Městské lázně jsou již nakonfigurovány."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "areal": {"name": "Návštěvníci - areál"},
+      "bazen": {"name": "Návštěvníci - bazén"},
+      "fitness": {"name": "Návštěvníci - fitness"},
+      "wellness": {"name": "Návštěvníci - wellness"},
+      "koupele": {"name": "Návštěvníci - koupele"},
+      "masaze": {"name": "Návštěvníci - masáže"},
+      "solarium": {"name": "Návštěvníci - solárium"},
+      "sauna": {"name": "Režim sauny"}
+    },
+    "binary_sensor": {
+      "pool_open": {"name": "Bazén otevřen"},
+      "fitness_open": {"name": "Fitness otevřeno"},
+      "wellness_open": {"name": "Wellness otevřeno"}
+    }
+  },
+  "issues": {
+    "occupancy_update_failed": {
+      "title": "Návštěvnost nelze aktualizovat",
+      "description": "Integrace nedokázala načíst nebo zpracovat [{url}]({url}): `{error}`. Senzory návštěvnosti nejsou dostupné. Podrobnosti jsou v protokolu Home Assistant; tato oprava po úspěšné aktualizaci zmizí."
+    },
+    "schedule_update_failed": {
+      "title": "Provozní dobu nelze aktualizovat",
+      "description": "Integrace nedokázala načíst nebo zpracovat [{url}]({url}): `{error}`. Senzory provozní doby nejsou dostupné. Podrobnosti jsou v protokolu Home Assistant; tato oprava po úspěšné aktualizaci zmizí."
+    }
+  }
+}

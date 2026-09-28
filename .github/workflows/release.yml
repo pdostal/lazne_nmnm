@@ -1,0 +1,32 @@
+---
+name: Release
+
+"on":
+  workflow_run:
+    workflows: [Validate]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master' &&
+      github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Create release for manifest version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          VERSION=$(jq -r .version custom_components/lazne_nmnm/manifest.json)
+          TAG="v${VERSION}"
+          gh release view "$TAG" >/dev/null 2>&1 && exit 0
+          gh release create "$TAG" --target "$SHA" --generate-notes \
+            --title "$TAG"

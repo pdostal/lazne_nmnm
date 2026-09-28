@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Městské lázně Nové Město na Moravě",
+        "description": "Add live visitor counts and opening hours from lazne.nmnm.cz."
+      }
+    },
+    "abort": {
+      "already_configured": "Městské lázně are already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "areal": {"name": "Visitors - complex"},
+      "bazen": {"name": "Visitors - pool"},
+      "fitness": {"name": "Visitors - fitness"},
+      "wellness": {"name": "Visitors - wellness"},
+      "koupele": {"name": "Visitors - baths"},
+      "masaze": {"name": "Visitors - massages"},
+      "solarium": {"name": "Visitors - solarium"},
+      "sauna": {"name": "Sauna access"}
+    },
+    "binary_sensor": {
+      "pool_open": {"name": "Pool open"},
+      "fitness_open": {"name": "Fitness open"},
+      "wellness_open": {"name": "Wellness open"}
+    }
+  },
+  "issues": {
+    "occupancy_update_failed": {
+      "title": "Visitor counts cannot be updated",
+      "description": "The integration could not fetch or parse [{url}]({url}): `{error}`. The visitor-count entities are unavailable. Details are available in the Home Assistant log; this repair disappears after a successful update."
+    },
+    "schedule_update_failed": {
+      "title": "Opening hours cannot be updated",
+      "description": "The integration could not fetch or parse [{url}]({url}): `{error}`. The opening-hours entities are unavailable. Details are available in the Home Assistant log; this repair disappears after a successful update."
+    }
+  }
+}

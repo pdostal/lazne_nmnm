@@ -1,0 +1,12 @@
+{
+  "domain": "lazne_nmnm",
+  "name": "Městské lázně Nové Město na Moravě",
+  "codeowners": ["@pdostal"],
+  "config_flow": true,
+  "documentation": "https://github.com/pdostal/lazne_nmnm",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/pdostal/lazne_nmnm/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
